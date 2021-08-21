@@ -47,7 +47,7 @@
     "organisation": "Google",
     "location": "Online"
   },
-    {
+  {
     "title": "All Things Open",
     "website": "2020.allthingsopen.org",
     "start": "19/10/2020",
@@ -55,7 +55,7 @@
     "organisation": "All Things Open",
     "location": "Online"
   },
-    {
+  {
     "title": "GIRLSCRIPT SUMMER OF CODE",
     "website": "gssoc.girlscript.tech/",
     "start": "10/03/2021",
@@ -64,47 +64,46 @@
     "location": "Online"
   },
   {
-    "title":"Google Summer of Code",
-    "website":"summerofcode.withgoogle.com/",
-    "start":"17/05/2021",
-    "end":"23/08/2021",
-    "organisation":"Multiple organisations like FOSSASIA,Redhat,ASF and many more ",  
-    "location":"Online"
+    "title": "Google Summer of Code",
+    "website": "summerofcode.withgoogle.com/",
+    "start": "17/05/2021",
+    "end": "23/08/2021",
+    "organisation": "Multiple organisations like FOSSASIA,Redhat,ASF and many more ",
+    "location": "Online"
   },
   {
-    "title":"MLH Fellowship",
-    "website":"fellowship.mlh.io/",
-    "start":"31/05/2021",
-    "end":"23/08/2021",
-    "organisation":"Github, Facebook, Dev and many more ",  
-    "location":"Online"
+    "title": "MLH Fellowship",
+    "website": "fellowship.mlh.io/",
+    "start": "31/05/2021",
+    "end": "23/08/2021",
+    "organisation": "Github, Facebook, Dev and many more ",
+    "location": "Online"
   },
   {
-    "title":"OUTREACHY",
-    "website":"www.outreachy.org/",
-    "start":"24/05/2021",
-    "end":"24/08/2021",
-    "organisation":"Collabora, Google, Mozilla, Red Hat and many more ",  
-    "location":"Online"
+    "title": "OUTREACHY",
+    "website": "www.outreachy.org/",
+    "start": "24/05/2021",
+    "end": "24/08/2021",
+    "organisation": "Collabora, Google, Mozilla, Red Hat and many more ",
+    "location": "Online"
   },
   {
-    "title":"BOSS - Bountiful Open Source Summer (2021)",
-    "website":"boss.codingblocks.com/",
-    "start":"15/05/2021",
-    "end":"15/08/2021",
-    "organisation":"Coding Blocks Labs",  
-    "location":"Online"
+    "title": "BOSS - Bountiful Open Source Summer (2021)",
+    "website": "boss.codingblocks.com/",
+    "start": "15/05/2021",
+    "end": "15/08/2021",
+    "organisation": "Coding Blocks Labs",
+    "location": "Online"
   },
   {
-    "title":"24 Pull Requests (2021)",
-    "website":"24pullrequests.com/",
-    "start":"1/12/2021",
-    "end":"24/12/2021",
-    "organisation":"24 Pull Requests",  
-    "location":"Online"
+    "title": "24 Pull Requests (2021)",
+    "website": "24pullrequests.com/",
+    "start": "1/12/2021",
+    "end": "24/12/2021",
+    "organisation": "24 Pull Requests",
+    "location": "Online"
   },
   {
-
     "title": "RAILS GIRLS SUMMER OF CODE",
     "website": "railsgirlssummerofcode.org",
     "start": "01/07/2021",
@@ -129,8 +128,8 @@
     "location": "Online"
   },
   {
-    "title":"GOOGLE SEASON OF DOCS",
-    "website":"developers.google.com/season-of-docs/docs/timeline",
+    "title": "GOOGLE SEASON OF DOCS",
+    "website": "developers.google.com/season-of-docs/docs/timeline",
     "start": "17/05/2021",
     "end": "30/11/2021",
     "organisation": "Multiple organisations like Apache Airflow,Arduino,CERN-HSF",
@@ -239,7 +238,6 @@
     "end": "21/05/2021",
     "organisation": "FOSSASIA",
     "location": "Online"
-
   },
   {
     "title": "NWOC",
@@ -272,7 +270,6 @@
     "end": "24/02/2022",
     "organisation": "Developers' JGEC",
     "location": "Online"
-
   },
   {
     "title": "Delta Winter of Code",
@@ -281,7 +278,6 @@
     "end": "31/01/2022",
     "organisation": "Delta Force, NIT Trichy",
     "location": "Online"
-
   },
   {
     "title": "DevScript Winter of Code",
@@ -290,7 +286,6 @@
     "end": "07/03/2022",
     "organisation": "DevScript",
     "location": "Online"
-
   },
   {
     "title": "Contributor's Hack",
@@ -299,20 +294,13 @@
     "end": "14/10/2021",
     "organisation": "HackinCodes",
     "location": "Online"
-
   },
-{
+  {
     "title": "Open Summer of Code",
     "website": "osoc.be",
     "start": "5/07/2021",
     "end": "29/07/2021",
     "organisation": "osoc",
     "location": "Online"
-
-  }    
-    
-
-
-
+  }
 ]
-

@@ -1,5 +1,6 @@
+console.log("running");
 // Fetch data from events.json file
-fetch("./Frontend/data/events.json")
+fetch("../data/events.json")
   .then((res) => res.json())
   .then((res) => {
     let cardContainer = document.getElementsByClassName("card-container")[0];
@@ -58,7 +59,6 @@ fetch("./Frontend/data/events.json")
     }
   });
 
-  
 // Filters for Events
 
 // Search Filter Element
@@ -66,164 +66,159 @@ const searchWrapper = document.querySelector(".search-input");
 const search = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
 const icon = searchWrapper.querySelector("i");
-search.addEventListener('keyup', applyFilter);
+search.addEventListener("keyup", applyFilter);
 
 // Event Status Filter Element
-let eventStatusFilterElement = document.querySelector('#event-status-filter');
-eventStatusFilterElement.addEventListener('change', applyFilter);
+let eventStatusFilterElement = document.querySelector("#event-status-filter");
+eventStatusFilterElement.addEventListener("change", applyFilter);
 
 // Event Range Start Element
-let eventRangeStartElement= document.getElementById("range-start");
-eventRangeStartElement.addEventListener('change', applyFilter);
+let eventRangeStartElement = document.getElementById("range-start");
+eventRangeStartElement.addEventListener("change", applyFilter);
 
 let eventRangeEndElement = document.getElementById("range-end");
-eventRangeEndElement.addEventListener('change', applyFilter);
+eventRangeEndElement.addEventListener("change", applyFilter);
 
 // Filter Event Function
-function applyFilter(){
-  
+function applyFilter() {
   // To remove all class of no_result
   let cardContainer = document.getElementsByClassName("card-container")[0];
-  let elements = cardContainer.getElementsByClassName('no_result');
-  while (elements[0])
-      elements[0].parentNode.removeChild(elements[0])
+  let elements = cardContainer.getElementsByClassName("no_result");
+  while (elements[0]) elements[0].parentNode.removeChild(elements[0]);
   // ends
 
-  let eventList = document.querySelectorAll('.empty_div');
-  let eventCount=eventList.length;
-  Array.from(eventList).forEach( eventItem => {
-    eventItem.style.display = 'block';
+  let eventList = document.querySelectorAll(".empty_div");
+  let eventCount = eventList.length;
+  Array.from(eventList).forEach((eventItem) => {
+    eventItem.style.display = "block";
   });
 
   let searchTerm = search.value.toLowerCase();
-  filterBySearchTerm(searchTerm, eventList,1);
+  filterBySearchTerm(searchTerm, eventList, 1);
 
   let reqStatus = eventStatusFilterElement.value.toLowerCase();
   filterByStatus(reqStatus, eventList);
 
   let rangeStart = eventRangeStartElement.valueAsDate;
   let rangeEnd = eventRangeEndElement.valueAsDate;
-  console.log(rangeStart, rangeEnd)
-  filterByRange(rangeStart, rangeEnd, eventList)
-  
+  console.log(rangeStart, rangeEnd);
+  filterByRange(rangeStart, rangeEnd, eventList);
+
   //Display no result message
-  Array.from(eventList).forEach( eventItem => {
-    if (eventItem.style.display == 'none'){
-     eventCount--;
+  Array.from(eventList).forEach((eventItem) => {
+    if (eventItem.style.display == "none") {
+      eventCount--;
     }
-  }); 
-  if(eventCount==0){
+  });
+  if (eventCount == 0) {
     let cardContainer = document.getElementsByClassName("card-container")[0];
     let noResult = document.createElement("div");
     noResult.className = "no_result";
     let heading = document.createElement("h3");
     heading.innerText = "Sorry 😞 ! No Event found 🔍";
     noResult.appendChild(heading);
-    cardContainer.appendChild(noResult); 
-    }
+    cardContainer.appendChild(noResult);
+  }
   //Display message ends
 }
 
 // Filter by Search Term
-function filterBySearchTerm(searchTerm, eventList,check) {
-  if(check == 1){
+function filterBySearchTerm(searchTerm, eventList, check) {
+  if (check == 1) {
     let userData = searchTerm; //user enetered data
-  let suggestions=[];
-  Array.from(eventList).forEach( eventItem => {
-    let eventTitle = eventItem.querySelector('.event_title').innerText.toLowerCase();
-    console.log(eventTitle);
-    suggestions.push(eventTitle);
-  });
+    let suggestions = [];
+    Array.from(eventList).forEach((eventItem) => {
+      let eventTitle = eventItem
+        .querySelector(".event_title")
+        .innerText.toLowerCase();
+      console.log(eventTitle);
+      suggestions.push(eventTitle);
+    });
 
     let emptyArray = [];
-    if(userData){
-        icon.onclick = ()=>{
-
-        }
-        emptyArray = suggestions.filter((data)=>{
-            //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
-            return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase()); 
-        });
-        emptyArray = emptyArray.map((data)=>{
-            // passing return data inside li tag
-            return data = '<li>'+ data +'</li>';
-        });
-        searchWrapper.classList.add("active"); //show autocomplete box
-        showSuggestions(emptyArray);
-        let allList = suggBox.querySelectorAll("li");
-        for (let i = 0; i < allList.length; i++) {
-            //adding onclick attribute in all li tag
-            allList[i].setAttribute("onclick", "select(this)");
-        }
-    }else{
-        searchWrapper.classList.remove("active"); //hide autocomplete box
+    if (userData) {
+      icon.onclick = () => {};
+      emptyArray = suggestions.filter((data) => {
+        //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
+        return data
+          .toLocaleLowerCase()
+          .startsWith(userData.toLocaleLowerCase());
+      });
+      emptyArray = emptyArray.map((data) => {
+        // passing return data inside li tag
+        return (data = "<li>" + data + "</li>");
+      });
+      searchWrapper.classList.add("active"); //show autocomplete box
+      showSuggestions(emptyArray);
+      let allList = suggBox.querySelectorAll("li");
+      for (let i = 0; i < allList.length; i++) {
+        //adding onclick attribute in all li tag
+        allList[i].setAttribute("onclick", "select(this)");
+      }
+    } else {
+      searchWrapper.classList.remove("active"); //hide autocomplete box
     }
   }
-  
-  Array.from(eventList).forEach( eventItem => {
 
-    let eventTitle = eventItem.querySelector('.event_title').innerText.toLowerCase()
+  Array.from(eventList).forEach((eventItem) => {
+    let eventTitle = eventItem
+      .querySelector(".event_title")
+      .innerText.toLowerCase();
 
-    if (eventTitle.indexOf(searchTerm) == -1){
-      eventItem.style.display = 'none';
+    if (eventTitle.indexOf(searchTerm) == -1) {
+      eventItem.style.display = "none";
     }
   });
 }
-function select(element){
+function select(element) {
   let selectData = element.textContent;
   search.value = selectData.toUpperCase();
-  icon.onclick = ()=>{
-      
-  }
+  icon.onclick = () => {};
   searchWrapper.classList.remove("active");
-  let eventList = document.querySelectorAll('.empty_div');
+  let eventList = document.querySelectorAll(".empty_div");
   let searchTerm = search.value.toLowerCase();
-  filterBySearchTerm(searchTerm, eventList,0);
+  filterBySearchTerm(searchTerm, eventList, 0);
 }
 
-function showSuggestions(list){
+function showSuggestions(list) {
   let listData;
-  if(!list.length){
-      userValue = search.value;
-      listData = '<li>'+ userValue +'</li>';
-  }else{
-      listData = list.join('');
+  if (!list.length) {
+    userValue = search.value;
+    listData = "<li>" + userValue + "</li>";
+  } else {
+    listData = list.join("");
   }
   suggBox.innerHTML = listData;
 }
 
 // Filter by Status
 function filterByStatus(reqStatus, eventList) {
-  let notReqClass = '';
-  if( reqStatus == 'online') {
-    notReqClass = '.locationOffline'
-  }
-  else if(reqStatus == 'offline') {
-    notReqClass = '.locationOnline'
-  }
-  else {
+  let notReqClass = "";
+  if (reqStatus == "online") {
+    notReqClass = ".locationOffline";
+  } else if (reqStatus == "offline") {
+    notReqClass = ".locationOnline";
+  } else {
     return;
   }
 
-  Array.from(eventList).forEach( eventItem => {
-
-    let currentEventStatus = eventItem.querySelector(notReqClass)  
+  Array.from(eventList).forEach((eventItem) => {
+    let currentEventStatus = eventItem.querySelector(notReqClass);
 
     if (currentEventStatus) {
-      eventItem.style.display = 'none';
+      eventItem.style.display = "none";
     }
-
   });
 }
 
 // Filter by Range
 function filterByRange(rangeStart, rangeEnd, eventList) {
-  if(rangeStart == null) {
-    rangeStart = new Date('0001-01-01T00:00:00Z');
+  if (rangeStart == null) {
+    rangeStart = new Date("0001-01-01T00:00:00Z");
   }
 
-  if(rangeEnd == null) {  
-    rangeEnd = new Date((new Date().getFullYear()) + 100,1,1);
+  if (rangeEnd == null) {
+    rangeEnd = new Date(new Date().getFullYear() + 100, 1, 1);
   }
 
   // the rangeStart should always be less than rangeEnd
@@ -231,26 +226,40 @@ function filterByRange(rangeStart, rangeEnd, eventList) {
     alert("The Range Start should be less than Range End");
     return;
   }
- 
-  Array.from(eventList).forEach( eventItem => {
 
-    let eventStartDateStr = eventItem.querySelectorAll(".date")[0].innerText.split(':')[1].split('/')
-    let eventEndDateStr = eventItem.querySelectorAll(".date")[1].innerText.split(':')[1].split('/')
+  Array.from(eventList).forEach((eventItem) => {
+    let eventStartDateStr = eventItem
+      .querySelectorAll(".date")[0]
+      .innerText.split(":")[1]
+      .split("/");
+    let eventEndDateStr = eventItem
+      .querySelectorAll(".date")[1]
+      .innerText.split(":")[1]
+      .split("/");
 
-    
-    let eventStartDate = new Date(eventStartDateStr[2], eventStartDateStr[1] - 1, eventStartDateStr[0]);
-    let eventEndDate = new Date(eventEndDateStr[2], eventEndDateStr[1] - 1, eventEndDateStr[0]);
+    let eventStartDate = new Date(
+      eventStartDateStr[2],
+      eventStartDateStr[1] - 1,
+      eventStartDateStr[0]
+    );
+    let eventEndDate = new Date(
+      eventEndDateStr[2],
+      eventEndDateStr[1] - 1,
+      eventEndDateStr[0]
+    );
 
-    if ( (rangeEnd.getTime() <= eventStartDate.getTime()) || (rangeStart.getTime() >= eventEndDate.getTime())) {
-        eventItem.style.display = 'none';
+    if (
+      rangeEnd.getTime() <= eventStartDate.getTime() ||
+      rangeStart.getTime() >= eventEndDate.getTime()
+    ) {
+      eventItem.style.display = "none";
     }
   });
-  
 }
 
 // Filters for Event Ends
 
-const toggleSwitch=document.querySelector('.custom-control-input');
+const toggleSwitch = document.querySelector(".custom-control-input");
 function switchTheme(event) {
   if (event.target.checked) {
     document.documentElement.setAttribute("data-theme", "dark");
@@ -290,14 +299,14 @@ window.addEventListener("DOMContentLoaded", function () {
   // var button = document.getElementById("my-form-button");
   var status = document.getElementById("status");
   // Success and Error functions for after the form is submitted
-  
+
   function success() {
     status.classList.remove("error");
     status.classList.remove("success");
-    form.value='';
-    name.value='';
-    email.value='';
-    message.value='';
+    form.value = "";
+    name.value = "";
+    email.value = "";
+    message.value = "";
     status.classList.add("success");
     status.innerHTML = "Thanks!Your message is submitted successfully";
   }

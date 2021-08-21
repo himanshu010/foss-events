@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Template</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/login.css"> -->
+    <link rel="stylesheet" href="/styles/addEvent.css">
+</head>
+
+<body>
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 login-section-wrapper">
+                    <div class="brand-wrapper">
+                        <h2>FossEvents</h2>
+                    </div>
+                    <div class="login-wrapper my-auto">
+                        <h1 class="login-title">Add Event</h1>
+                        <form action="/registerevent" method="POST">
+                            <div class="form-group">
+                                <label for="title">Event</label>
+                                <input name="title" id="title" class="form-control" placeholder="Event Name" required>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="url">Website</label>
+                                <input type="url" name="website" id="website" class="form-control" placeholder="https://yourwebsite.com" required>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="start">Start Date</label>
+                                <input type="date" name="start" id="start" class="form-control" required>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="end">End Date</label>
+                                <input type="date" name="end" id="end" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="organisation">Organisation</label>
+                                <input name="organisation" id="organisation" class="form-control" placeholder="Organisation" required>
+                            </div>
+                            <div style="display:inline-flex !important; padding: 5px">
+                                <label class="container">Online
+                                    <input type="radio" name="location" value="Online" required>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">Offline
+                                    <input type="radio" name="location" value="Offline" required>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <button class="btn btn-block login-btn" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-6 px-0 d-none d-sm-block">
+                    <img src="/data/img/event.jpg" alt="login image" class="login-img">
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
